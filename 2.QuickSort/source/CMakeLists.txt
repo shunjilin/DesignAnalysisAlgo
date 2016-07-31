@@ -2,5 +2,5 @@ set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
 
 include_directories("../include")
 
-add_executable(inversions main.cpp)
+add_executable(quicksort main.cpp)
  
