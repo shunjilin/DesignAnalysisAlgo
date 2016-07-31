@@ -1,3 +1,5 @@
+//Copyright 2016 <Shunji Lin>
+
 #include <vector>
 
 template <class T>
@@ -5,7 +7,7 @@ class MergeSort {
  public:
   MergeSort() : inversions{0} {
   }
-  
+
   void mergeSort(std::vector<T>& elements) {
     inversions = 0; // reset inversions
     mergeSortAux(elements, 0, elements.size());
