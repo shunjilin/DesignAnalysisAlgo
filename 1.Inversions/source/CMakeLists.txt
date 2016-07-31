@@ -4,3 +4,4 @@ include_directories("../include")
 
 add_executable(inversions main.cpp)
 target_link_libraries(inversions gmock pthread)
+ 
