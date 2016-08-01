@@ -1,0 +1,86 @@
+//Copyright 2016 <Shunji Lin>
+
+#include <vector>
+#include <functional>
+
+namespace QuickSort {
+
+  void quickSort(std::vector<T>& elements,
+		 std::function<size_t(std::vector<T>&, size_t, size_t)> choosePivot = nullptr) {
+    comparisons = 0;
+    quickSortAux(elements, choosePivot, 0, elements.size()); 
+  }
+
+  namespace detail {
+    // partition and get partition element index
+    size_t partition(std::vector<T>& elements, size_t start, size_t end) {
+      T pivot = elements[start];
+      size_t i = start + 1;
+      for (size_t j = start + 1; j < end; ++j) {
+      if (elements[j] < pivot) {
+	std::swap(elements[j], elements[i]);
+	++i;
+      }
+    }
+    std::swap(elements[start], elements[i-1]);
+    return i-1;
+    }
+
+    void quickSortAux(std::vector<T>& elements,
+		    std::function<size_t(std::vector<T>&, size_t, size_t)> choosePivot,
+		    size_t start, size_t end) {
+      size_t size = end - start;
+      comparisons += size - 1;
+      if (size <= 1) return;
+      size_t pivotIndex = (choosePivot == nullptr) ?
+        firstPivotIndex(elements, start, end) : choosePivot(elements, start, end);
+      std::swap(elements[start], elements[pivotIndex]);
+      size_t mid = partition(elements, start, end);
+      quickSortAux(elements, choosePivot, start, mid);
+      quickSortAux(elements, choosePivot, mid + 1, end);
+    }
+    
+    template<class T>
+    size_t firstPivotIndex(const std::vector<T>& elements,
+		       size_t start, size_t end) {
+      if ((end - start) < 1) printf("invalid array size\n");
+      return start;
+    }
+
+    template<class T>
+    size_t lastPivotIndex(const std::vector<T>& elements,
+		size_t start, size_t end) {
+      if ((end - start) < 1) printf("invalid array size\n");
+      return end - 1;
+    }
+
+    template<class T>
+    size_t medianOfThreeIndex(const std::vector<T>& elements,
+			      size_t start, size_t end) {
+      size_t mid = getMiddleIndex(elements, start, end);
+      auto first = elements[start];
+      auto middle = elements[mid];
+      auto last = elements[end - 1];
+      auto median = medianOfThree(first, middle, last);
+      if (median == first) {
+        return start;
+      } else if (median == middle) {
+        return mid;
+      } else {
+        return end - 1;
+      }
+    }
+
+    template<class T>
+    size_t getMiddleIndex(const std::vector<T>& elements,
+			  size_t start, size_t end) {
+      size_t size = end - start;
+      return (size % 2 == 0) ? (size / 2) - 1 : (size / 2);
+    }
+
+    template<class T>
+    const T& medianOfThree(const T& first, const T& middle, const T& last) const {
+      return std::max(std::min(first, middle), std::min(std::max(first, middle), last));
+    }
+  }
+}

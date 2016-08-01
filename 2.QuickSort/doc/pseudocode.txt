@@ -1,0 +1,30 @@
+---------------------------------
+QuickSort: High-Level Description
+---------------------------------
+QuickSort(array A, length n)
+if n = 1 return
+p = choosePivot(A, n)
+Partition A around p ;; elements less than p on left, more than p on right
+recursively sort 1st part
+recursively sort 2nd part
+
+-----------------------------------------
+Partition: In-Place Implementation
+-----------------------------------------
+Assume: pivot = 1st element of array
+[if not, swap pivot with 1st element as preprocessing step]
+single scan through array
+invariant: everythin looked at so far is partitioned
+running time: O(n)
+
+---------------------
+Partition: Pseudocode
+---------------------
+Partition(A, l, r) ;;input = A[l...r]
+p = A[l]
+i = l + 1
+  for j = l + 1 to r
+  if A[j] < p ;; if A[j] > p, do nothing]
+    swap A[j] and A[i]
+    i = i + 1
+swap A[l] and A[i - 1]

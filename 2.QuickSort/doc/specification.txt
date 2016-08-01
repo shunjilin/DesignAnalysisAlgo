@@ -1,0 +1,15 @@
+QuickSort.txt contains all integers between 1 and 10,000 (inclusive, no repeats), in unsorted order.
+
+The integer in the ith row of the file gives the ith entry of an input array
+
+Compute the total number of comparisons used to sort the input file by QuickSort.
+
+When there is a recursive call on a subarray of length m, add m-1 to the running total of comparisons
+
+1. Use first element of the array as the pivot element
+
+2. Use final element of the array as the pivot element
+
+3. Use the median-of-three pivot rule:
+For even length - for n length, use n/2 element
+For odd length - use the middle element, n/2 + 1
