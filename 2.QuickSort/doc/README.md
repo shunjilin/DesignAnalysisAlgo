@@ -6,4 +6,4 @@ to compile type "make"
 
 to run tests type "./test/tests"
 
-to run main type "./source/quicksort"
+to run main type "./source/quicksort < ../QuickSort.txt"
