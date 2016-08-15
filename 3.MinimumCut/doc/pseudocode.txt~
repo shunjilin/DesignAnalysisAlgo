@@ -1,0 +1,54 @@
+----------------------
+Merge Sort: Pseudocode
+----------------------
+
+1. Recursively sort 1st half of input array
+
+2. Recursively sort 2nd half of input array
+
+3. Merge two sorted sublists into one
+
+[needs base case, and dealing with odd length inputs]
+
+
+------------------
+Merge : Pseudocode
+------------------
+
+C = output array [length = n ]
+A = 1st sorted array [n/2]
+B = 2nd sorted array [n/2]
+i = 1
+j = 1
+for k = 1 to n
+  if A(i) < B(j)
+    C(k) = A(i)
+    i + 1
+  else [B(j) < A(i)]
+    C(k) = B(j)
+    j + 1
+end
+
+Counting Inversions Piggybacks on Merge Sort
+
+-------------------------------
+Counting Inversions: Pseudocode
+-------------------------------
+
+Sort-and-Count(array A, length n)
+  if n = 1 return 0
+  else
+   (B, x) = Sort-and-Count(1st half of A, n/2)
+   (C, y) = Sort-and-Count(2nd half of A, n/2)
+   (D, z) = Merge-and-CountSplitInv(B, C, n) ;; count inversions between B and C
+   return x + y + z
+
+Note: the split inversions involving an element y in the 2nd array C are the numbers left in the 1st array B when y is copied to output D.
+
+-----------------------------------
+Merge-and-CountSplitInv: Pseudocode
+-----------------------------------
+
+- While merging the two sorted subarrays, keep running total of number of split inversions
+- When element of 2nd array C gets copied to output D, increment total by number of elements remaining in 1st array B
+

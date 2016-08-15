@@ -1,0 +1,5 @@
+File contains 100,000 integers between 1 and 100,000 (inclusive), in some order, with no integer repeated.
+
+Compute the number of inversions in the file given, ith row of file indicates ith entry of array
+
+Output number of inversions
