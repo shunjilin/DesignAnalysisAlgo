@@ -6,7 +6,7 @@ to compile type "make"
 
 to run tests type "./test/tests"
 
-to run main type "./source/minimumCut < ../kargerMinCut.txt"
+to run main type "./source/minimumCut"
 
 
 
