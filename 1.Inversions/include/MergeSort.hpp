@@ -1,5 +1,9 @@
 //Copyright 2016 <Shunji Lin>
 
+
+#ifndef MERGESORT_HPP
+#define MERGESORT_HPP
+
 #include <vector>
 
 namespace MergeSort {
@@ -68,3 +72,5 @@ namespace MergeSort {
 	detail::mergeSortAux(elements, 0, elements.size(), inversions);
     }
 };
+
+#endif

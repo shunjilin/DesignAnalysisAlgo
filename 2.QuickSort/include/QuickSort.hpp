@@ -1,5 +1,8 @@
 //Copyright 2016 <Shunji Lin>
 
+#ifndef QUICKSORT_HPP
+#define QUICKSORT_HPP
+
 #include <vector>
 #include <functional>
 
@@ -95,3 +98,5 @@ namespace QuickSort {
 	}
     };
 }
+
+#endif QUICKSORT_HPP

@@ -1,5 +1,8 @@
 //Copyright 2016 <Shunji Lin>
 
+#ifndef ADJACENCYLIST_HPP
+#define ADJACENCYLIST_HPP
+
 #include <vector>
 #include <set>
 #include <algorithm>
@@ -158,6 +161,6 @@ private:
 
 };
 
-
+#endif
 
 
