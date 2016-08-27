@@ -6,6 +6,7 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <iostream>
 
 // Node can be extended to include a payload,
 // currently only has an id
