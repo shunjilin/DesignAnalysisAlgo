@@ -7,19 +7,35 @@
 #include <set>
 #include <algorithm>
 #include <iostream>
+#include <unordered_map>
+#include <functional>
+#include <utility>
 
-// Node can be extended to include a payload,
-// currently only has an id
+// Node can be extended to include a payload
 struct Node {
-    int id;
     // entries indicate at least one edge to neighbor
     std::set<int> neighbors;
 };
 
+// hash using bit shift and XOR
+struct pair_hash {
+    template <typename T1, typename T2>
+    size_t operator()(const std::pair<T1, T2> &p) const {
+	return (p.first >> 1) ^ (p.second << 1);
+    }
+};
+
+// stores edge pair as key, count as value
+// using unordered map as opposed to vector reduces look-up time,
+// improves performance of about an order of 10
+struct EdgeList {
+    std::unordered_map<std::pair<int,int>, int, pair_hash > edges;
+    int size = 0;
+};
 
 // undirected graph
 // _graph only shows connectivity of graph
-// where as _edges contains the actual edges
+// where as _edges contains the actual edge counts
 class AdjacencyList {
 public:
     AdjacencyList(int size) : _graph(size) {
@@ -55,18 +71,21 @@ public:
     }
 
     int edgeCount() {
-	return _edges.size();
+	return _edgeList.size;
     }
   
-    // exposed for testing purposes
+    /*******************************//**
+     * exposed for testing purposes
+     ***********************************/
+    
     std::set<int> _nodes;
     std::vector<Node> _graph;
-    // stores edge pair as key, and count as value
-    std::vector<std::pair<int,int> > _edges;
+    EdgeList _edgeList;
 
     bool _findEdgeInEdges(int u, int v) const {
 	auto edge = getOrderedEdge(u, v);
-	return (std::find(_edges.begin(), _edges.end(), edge) != _edges.end());
+	return (_edgeList.edges.find(edge)
+		!= _edgeList.edges.end());
     }
 
     bool _findEdgeInGraph(int u, int v) const {
@@ -87,14 +106,6 @@ private:
 	}
 	return edge;
     }
-
-    template< typename T >
-    int countAndRemoveAllFromVec(T elem, std::vector<T> &vec) {
-	auto it = std::remove(vec.begin(), vec.end(), elem);
-	int count = std::distance(it, vec.end());
-	vec.erase(it, vec.end());
-	return count;
-    }
   
     void removeNode(int node) {
 	_nodes.erase(node);
@@ -102,17 +113,21 @@ private:
   
     void insertEdgeIntoEdges(int u, int v) {
 	auto edge = getOrderedEdge(u,  v);
-	_edges.emplace_back(edge);
+	_edgeList.edges[edge] += 1;
+	_edgeList.size += 1;
     }
 
     void removeEdge(int u, int v) {
-	countAndremoveEdgeFromEdges(u, v);
+        countAndremoveEdgeFromEdges(u, v);
 	removeEdgeFromGraph(u, v);
     }
 
     int countAndremoveEdgeFromEdges(int u, int v) {
 	auto edge = getOrderedEdge(u, v);
-	return countAndRemoveAllFromVec<std::pair<int, int> >(edge, _edges); 
+	auto count = _edgeList.edges[edge];
+        _edgeList.size -= count;
+	_edgeList.edges.erase(edge);
+	return count;
     }
 
     void insertEdgeIntoGraph(int u, int v) {
@@ -154,12 +169,17 @@ private:
     }
 
     std::pair<int, int> getRandomEdge() {
-	int randInt = rand() % _edges.size();
-	auto it = _edges.begin();
-	advance(it, randInt);
-	return *it;
+	int randInt = rand() % _edgeList.size;
+	auto it = _edgeList.edges.begin();
+	for (; it != _edgeList.edges.end(); ++it) {
+	    if (it->second < randInt) {
+		randInt -= it->second;
+	    } else {
+		break;
+	    }
+	}
+	return it->first;
     }
-
 };
 
 #endif

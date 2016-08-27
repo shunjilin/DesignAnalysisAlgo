@@ -11,7 +11,7 @@
 #include "steadyClockTimer.hpp"
 
 const int N_NODES = 200;
-const int ITERATIONS = 1;
+const int ITERATIONS = 1000;
 
 int main(int argc, char *argv[])
 {
@@ -48,7 +48,6 @@ int main(int argc, char *argv[])
 
     timer.start();
     for (int i = 0; i < ITERATIONS; ++i) {
-	printf("iteration : %d\n", i);
 	srand(i);
 	AdjacencyList adjListCopy = adjList;
 
@@ -61,7 +60,9 @@ int main(int argc, char *argv[])
 	}
     }
 
-    std::cout << "possible min cut edge count is: " <<  minCutEdges << std::endl;
+    std::cout << "After " << ITERATIONS << " iterations," << std::endl;
+    
+    std::cout << "Possible min cut edge count is: " <<  minCutEdges << std::endl;
 
     std::cout << "time taken is: " << timer.getMs() << " ms" << std::endl;
     return 0;

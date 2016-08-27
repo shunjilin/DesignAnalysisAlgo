@@ -42,8 +42,8 @@ TEST_F(AdjacencyListInitialize, InsertsEdgeIntoEdgesCorrectly) {
     int node1 = 1, node2 = 2;
     adjList->insertEdge(node1, node2);
     auto edge = std::make_pair(node1, node2);
-    ASSERT_FALSE(std::find(adjList->_edges.begin(), adjList->_edges.end(), edge)
-		 == adjList->_edges.end());
+    ASSERT_FALSE(adjList->_edgeList.edges.find(edge)
+		 == adjList->_edgeList.edges.end());
 }
 
 class AdjacencyListWithEdges : public testing::Test {
@@ -122,7 +122,6 @@ TEST_F(AdjacencyListWithEdges, RandomContractionsReducesEdgesCorrectly) {
     }
     ASSERT_THAT(adjList->edgeCount(), Eq(0));
 }
-
 
 int main(int argc, char *argv[])
 {
