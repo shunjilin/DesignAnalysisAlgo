@@ -22,8 +22,7 @@ int main(int argc, char *argv[])
     std::ifstream infile;
     infile.open("../kargerMinCut.txt");
     if (!infile) {
-	infile.close();
-	std::cout << "Reading file failed." << std::endl;
+	std::cout << "Opening file failed." << std::endl;
 	return -1;
     }
     
@@ -32,13 +31,13 @@ int main(int argc, char *argv[])
 	std::istringstream iss(line);
         int u, v;
 	iss >> u;
-	if (iss.fail() || u < 1 || u > N_NODES) {
-	    std::cout << "Incorrect input read." << std::endl;
-	    return -1;
-	}
 	while (iss >> v) {
-	    if (iss.fail() || u < 1 || u > N_NODES) {
-		std::cout << "Incorrect input read." << std::endl;
+	    if (iss.fail()) { 
+		std::cout << "Reading error or incorrect type." << std::endl;
+		return -1;
+	    }
+	    if (u < 1 || u > N_NODES || v < 1 || v > N_NODES) {
+		std::cout << "Vertex ID out of range" << std::endl;
 		return -1;
 	    }
 	    adjList.insertEdge(u-1, v-1);
