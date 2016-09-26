@@ -1,0 +1,7 @@
+Shortened from Coursera:
+
+The file contains the edges of a directed graph. Vertices are labeled as positive integers from 1 to 875714.
+
+Code up the algorithm from the video lectures for computing strongly connected components (SCCs), and to run this algorithm on the given graph.
+
+You should output the sizes of the 5 largest SCCs in the given graph, in decreasing order of sizes.
