@@ -11,3 +11,5 @@ Practice with CMake and Google Test/ Google Mock
 2.QuickSort - QuickSort and counting comparisons
 
 3.MinimumCut - Randomized contraction for counting minimum cuts of an undirected graph
+
+4.Strongly Connected Components - Kosaraju's algorithm for computing strongly connected components
