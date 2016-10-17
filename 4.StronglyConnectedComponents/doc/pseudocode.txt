@@ -2,4 +2,12 @@
 Kosaraju's Algorithm : Psuedocode
 -----------------------------------------
 
-%TODO: FILL IN
+Run DFS_firstPass on reversed graph
+- repeat DFS on unexplored node
+- in each DFS, when hit dead end (no more unexplored nodes on edges),
+  assign order (in decreasing order)
+
+Run DFS_secondPass on original graph
+- run DFS repeatedly on unexplored nodes, in increasing order
+- the node DFS is run on is called the leader of the SCC
+- assign grouping to nodes in the same SCC (within the same DFS)
