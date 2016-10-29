@@ -13,3 +13,5 @@ Practice with CMake and Google Test/ Google Mock
 3.MinimumCut - Randomized contraction for counting minimum cuts of an undirected graph
 
 4.Strongly Connected Components - Kosaraju's algorithm for computing strongly connected components
+
+5.Shortest Paths - Dijkstra's algorithm for computing shortest paths
