@@ -1,13 +1,12 @@
 //Copyright 2016 <Shunji Lin>
 
-#include "adjacencyList.hpp"
 #include <fstream>
 #include <string>
 #include <sstream>
 #include <stdlib.h>
 #include <chrono>
 #include <iostream>
-#include "adjacencyList.hpp"
+#include "AdjacencyList.hpp"
 #include "steadyClockTimer.hpp"
 
 const int N_NODES = 200;
