@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include "MergeSort.hpp"
+#include "steadyClockTimer.hpp"
 
 using namespace MergeSort;
 
@@ -30,8 +31,14 @@ int main(int argc, char *argv[]) {
 	}
 	testVector.emplace_back(entry);
     }
+
+    SteadyClockTimer timer;
+    timer.start();
     
     unsigned inversions = 0;
     mergeSort(testVector, inversions);
     std::cout << "Number of inversions is : " << inversions << std::endl;
+
+    std::cout << "time taken is: " << timer.getMs() << " ms" << std::endl;
+    return 0;
 }
