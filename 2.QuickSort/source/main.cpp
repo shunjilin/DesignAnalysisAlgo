@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
 #include "QuickSort.hpp"
 
 using namespace QuickSort;
@@ -9,10 +11,26 @@ using namespace QuickSort;
 int main(int argc, char *argv[]) {
     // Read from file into vector
     std::vector<int> testVector1;
-    int entry;
-    while (std::cin >> entry) {
+
+    std::ifstream infile;
+    infile.open("../QuickSort.txt");
+    if (!infile) {
+	std::cout << "Opening file failed." << std::endl;
+	return -1;
+    }
+
+    std::string line;
+    while (std::getline(infile, line)) {
+	std::istringstream iss(line);
+	int entry;
+	iss >> entry;
+	if (iss.fail()) {
+	    std::cout << "Reading error or incorrect type." << std::endl;
+	    return -1;
+	}
 	testVector1.emplace_back(entry);
     }
+
     std::vector<int> testVector2(testVector1);
     std::vector<int> testVector3(testVector2);
 

@@ -4,6 +4,6 @@ To build, type "cmake .." in build directory
 
 to compile type "make"
 
-to run tests type "./test/tests"
+to run tests type "./test/QuickSortTest"
 
-to run main type "./source/quicksort < ../QuickSort.txt"
+to run main type "./source/quicksort

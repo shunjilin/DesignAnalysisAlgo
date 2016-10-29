@@ -99,4 +99,4 @@ namespace QuickSort {
     };
 }
 
-#endif QUICKSORT_HPP
+#endif
