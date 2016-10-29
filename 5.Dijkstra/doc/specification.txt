@@ -1,0 +1,7 @@
+Shortened from Coursera:
+
+The file contains an adjacency list representation of an undirected weighted graph with 200 vertices labeled 1 to 200. Each row consists of the node tuples that are adjacent to that particular vertex along with the length of that edge.
+
+e.g. "1 2,100 3,200" indicates that there is an edge between vertices 1 and 2 that has distance 100, and an edge between vertices 1 and 3 that has distance 200.
+
+The task is to run Dijkstra's shortest-path algorithm on this graph, using 1 (the first vertex) as the source vertex, and to compute the shortest-path distances between 1 and every other vertex of the graph.

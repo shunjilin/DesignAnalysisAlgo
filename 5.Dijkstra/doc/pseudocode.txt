@@ -1,0 +1,32 @@
+--------------------
+Dijkstra's Algorithm
+--------------------
+
+Undirected Graph with nonnegative edge costs
+
+Invariant: when a vertex is first subsumed by search and assigned a shortest path distance from the source node, its assigned shortest path is shortest and will not be altered by further search progress.
+
+Data structures used:
+1. Search Frontier
+> A priority queue of vertices not yet subsumed by search but adjacent to the vertices already processed by the search.
+> Implemented as a Min Heap.
+> Priority queue ordered by distance from source vertex.
+> Can have duplicates.
+
+
+2. Closed list
+> Array indexed by vertices that tracks the shortest path assignment. If unassigned, value is null (max of int).
+> Also used as a cache to discard invalid vertices (non shortest path).
+
+----------
+Pseudocode
+----------
+
+1. Assign source vertex value of 0 in Closed List. Assign the rest with infinity value (max of int).
+2. Initialize Frontier with vertices adjacent to source node with their edge values.
+3. While Frontier is not empty:
+   3.1. Extract the vertex with the minimum distance from source (target vertex).
+   3.2. Check if target vertex's distance is already assigned in Closed List.
+   	3.2.1. If yes, discard target vertex and continue.
+	3.2.1. If no, update Closed List value, and insert all vertices adjacent to the target vertex into frontier. Update their distance from source by adding the target vertex's shortest path distance to the edge costs from the vertices to the target vertex.
+4. On termination, all shortest path distances will be assigned in the Closed List
