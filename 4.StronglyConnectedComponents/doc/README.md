@@ -7,3 +7,5 @@ to compile type "make"
 to run tests type "./test/tests"
 
 to run main type "./source/SCC"
+
+to overcome recursion depth limit on Ubuntu, type 'ulimit -s unlimited' in terminal
