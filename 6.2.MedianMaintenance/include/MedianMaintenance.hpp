@@ -1,17 +1,14 @@
 // Copyright 2016 <Shunji Lin>
-
-#ifndef MEDIANMAINTANENCE_HPP
-#define MEDIANMAINTANENCE_HPP
+#ifndef MEDIANMAINTENANCE_HPP
+#define MEDIANMAINTENANCE_HPP
 
 #include <vector>
 #include <queue>
 #include <iostream>
 
-const int MODVALUE = 10000;
-
-class MedianMaintanence {
+class MedianMaintenance {
 public:
-    MedianMaintanence(std::vector<int> input) : integers(input),
+    MedianMaintenance(std::vector<int> input) : integers(input),
 						index(0) {
 	left_heap.push(integers[0]);
     }

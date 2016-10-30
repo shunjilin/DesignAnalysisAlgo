@@ -4,7 +4,7 @@
 #include <sstream>
 #include <iostream>
 #include <string>
-#include "MedianMaintanence.hpp"
+#include "MedianMaintenance.hpp"
 #include "steadyClockTimer.hpp"
 
 
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     SteadyClockTimer timer;
     timer.start();
     
-    MedianMaintanence MM(integers);
+    MedianMaintenance MM(integers);
     auto sum = MM.getSumOfMedians();
     std::cout << "Sum of Medians is : " << sum << std::endl;
     std::cout << "time taken is: " << timer.getMs() << " ms" << std::endl;

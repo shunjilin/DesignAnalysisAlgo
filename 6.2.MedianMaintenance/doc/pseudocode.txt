@@ -1,0 +1,14 @@
+------------------
+Median Maintenance
+------------------
+
+Using two heaps: Left Max Heap and Right Min Heap
+
+On reading new input integer (by advancing the index), insert into appropriate Heap:
+> If integer is greater than top of Right Min Heap, insert into Right Min Heap
+> Otherwise insert into Left Max Heap
+
+Maintain invariant that Left Max Heap is always equal or 1 size bigger than Right Min Heap.
+> If not, adjust sizes by popping off top of an oversized heap and inserting into the other heap.
+
+With the invariant maintained, one can find the running median by just looking at the top of the Left Min Heap.

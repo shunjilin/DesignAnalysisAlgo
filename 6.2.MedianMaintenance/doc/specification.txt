@@ -1,0 +1,7 @@
+Shortened from Coursera:
+
+The text file contains a list of the integers from 1 to 10000 in unsorted order; you should treat this as a stream of numbers, arriving one by one.
+
+For each input, calculate the median of the numbers accumulated so far.
+
+Sum all 10000 medians, and output the modulo 10000 of this sum.
