@@ -1,0 +1,9 @@
+Shortened from Coursera:
+
+Implement variant of 2-SUM algorithm.
+
+The file contains 1 million integers, both positive and negative (with possible repetitions).
+
+Task is to compute number of target values t in the interval [-10000, 10000] (inclusive) such that there are distinct numbers x, y in the input file that satisfy x + y = t.
+
+Output the total number of unique target values t.
