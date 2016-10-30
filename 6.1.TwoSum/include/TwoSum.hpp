@@ -45,7 +45,7 @@ namespace twoSum {
 	    
 		for (auto iter = min_second_iter; iter != max_second_iter;++iter) {
 		    if (unique(first, *iter)) {
-			sum_values.insert(*iter);
+			sum_values.insert(first + *iter);
 		    }
 		}
 
