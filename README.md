@@ -15,3 +15,7 @@ Practice with CMake and Google Test/ Google Mock
 4.Strongly Connected Components - Kosaraju's algorithm for computing strongly connected components
 
 5.Shortest Paths - Dijkstra's algorithm for computing shortest paths
+
+6.1.2-SUM Algorithm - Using binary search and a hash table
+
+6.2.Median Maintenance - Running Median calculation using a Min Heap and a Max Heap
