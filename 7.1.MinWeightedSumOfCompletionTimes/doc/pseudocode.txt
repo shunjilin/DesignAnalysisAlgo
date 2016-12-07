@@ -1,0 +1,11 @@
+----------
+Scheduling
+----------
+
+Goal: Minimize the Weighted Sum of Completion Times, i.e. sum of wj + cj where wj is the weight of each job (cost) and cj is the completion time (sum of job lengths up to and including j)
+
+----------
+Pseudocode
+----------
+
+Simply sort the jobs by the given strategies

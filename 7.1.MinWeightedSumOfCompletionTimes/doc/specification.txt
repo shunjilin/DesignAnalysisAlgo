@@ -1,0 +1,21 @@
+Shortened from Coursera:
+
+File describes a set of jobs with positive and integral weights and lengths:
+[number of jobs]
+[job_1_weight] [job_1_length]
+[job_2_weight] [job_2_length]
+...
+
+Goal: Minimize the Weighted Sum of Completion Times, i.e. sum of wj + cj where wj is the weight of each job (cost) and cj is the completion time (sum of job lengths up to and including j)
+
+Edge weights and lengths should not be assumed to be distinct
+
+First approach:
+Run greedy algorithm that schedules jobs in decreasing order of the difference (weight - length). This is non optimal.
+
+Tie-breaking:
+If two jobs have equal difference (weight-length), schedule job with higher weight first.
+
+Second approach:
+Run optimal algorithm that schedules job in decreasing order of weight / length.
+Tie-breaking does not matter
