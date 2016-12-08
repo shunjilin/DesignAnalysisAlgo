@@ -19,3 +19,7 @@ Practice with CMake and Google Test/ Google Mock
 6.1.2-SUM Algorithm - Using binary search and a hash table
 
 6.2.Median Maintenance - Running Median calculation using a Min Heap and a Max Heap
+
+7.1.Minimum Weighted Sum of Completion Times - Greedy Scheduling
+
+7.2.Minimum Spanning Tree - Prim's Algorithm
