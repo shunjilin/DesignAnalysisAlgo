@@ -8,7 +8,6 @@
 #include "Scheduler.hpp"
 #include "steadyClockTimer.hpp"
 
-using Job = std::pair<int, int>;
 using namespace Scheduler;
 
 int main(int argc, char *argv[])
@@ -41,7 +40,7 @@ int main(int argc, char *argv[])
 	    std::cout << "Reading error or incorrect type." << std::endl;
 	    return -1;
 	}
-	Job job = std::make_pair(weight, length);
+	Job job(weight, length);
 	jobList1.emplace_back(job);
 	jobList2.emplace_back(job);
     }

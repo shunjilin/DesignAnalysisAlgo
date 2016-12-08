@@ -8,7 +8,6 @@
 
 using namespace testing;
 using namespace Scheduler;
-using Job = std::pair<int, int>;
 const int N_JOBS = 10;
 
 class JobListInitialize : public Test {
@@ -20,8 +19,8 @@ public:
 
     virtual void SetUp() {
 	for (int i = 0; i < N_JOBS; ++i) {
-	    jobList.emplace_back(std::make_pair(distribution(generator),
-					     distribution(generator)));
+	    jobList.emplace_back(Job(distribution(generator),
+				     distribution(generator)));
 	}
     }
     
@@ -41,7 +40,7 @@ TEST_F(JobListInitialize, DifferenceSchedulerMaintainsDifferenceInvariant) {
     differenceScheduler(jobList);
     bool invariantMaintained = true;
     for (int i = 0; i < N_JOBS - 1; ++i) {
-	if (jobList[i].first - jobList[i].second < jobList[i+1].first - jobList[i+1].second) {
+	if (jobList[i].weight - jobList[i].length < jobList[i+1].weight - jobList[i+1].length) {
 	    invariantMaintained = false;
 	    break;
 	}
@@ -53,8 +52,8 @@ TEST_F(JobListInitialize, DifferenceSchedulerMaintainsTieBreakInvariant) {
     differenceScheduler(jobList);
     bool invariantMaintained = true;
     for (int i = 0; i < N_JOBS - 1; ++i) {
-	if (jobList[i].first - jobList[i].second == jobList[i+1].first - jobList[i+1].second) {
-	    if (jobList[i].first < jobList[i+1].first) {
+	if (jobList[i].weight - jobList[i].length == jobList[i+1].weight - jobList[i+1].length) {
+	    if (jobList[i].weight < jobList[i+1].weight) {
 		invariantMaintained = false;
 		break;
 	    }
@@ -77,8 +76,8 @@ TEST_F(JobListInitialize,RatioSchedulerMaintainsRatioInvariant) {
     ratioScheduler(jobList);
     bool invariantMaintained = true;
     for (int i = 0; i < N_JOBS - 1; ++i) {
-	if (static_cast<double>(jobList[i].first) / static_cast<double>(jobList[i].second) <
-	    static_cast<double>(jobList[i+1].first) / static_cast<double>(jobList[i+1].second)) {
+	if (static_cast<double>(jobList[i].weight) / static_cast<double>(jobList[i].length) <
+	    static_cast<double>(jobList[i+1].weight) / static_cast<double>(jobList[i+1].length)) {
 	    invariantMaintained = false;
 	    break;
 	}
