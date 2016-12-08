@@ -1,0 +1,39 @@
+--------------------------------------
+Prim's Minimum Spanning Tree Algorithm
+--------------------------------------
+
+Greedy Algorithm that finds minimum spanning tree for weighted undirected graph
+
+Informally:
+1. Initialize tree with single vertex, chosen arbitrarily from the graph.
+2. In each iteration, of all the edges that connect the current tree to vertices not yet in
+   the tree, find the minimum-weight edge and grow the tree by that edge.
+
+Data structure used:
+Minimum heap for the frontier vertices (vertices not yet in the tree), ranked by the cost of
+the edge that connects to the current tree.
+   
+----------
+Pseudocode
+----------
+
+- Initialize X = {S} [s chosen arbitrarily from V]
+- T = null [invariant: X = vertices spanned by tree so far]
+- while X neq V:
+  - let e = (u, v) be the cheapest edge of G with u in X, v not in X
+  - add e to T
+  - add v to X
+
+Heap:
+- Elements in heap = vertices of not X
+- For elements v in heap, key[v] = cheapest edge (u, v) with u in X \
+  (or infinite if no such edge exist)
+- Extract-Min yields next vertex v not in X and edge (u, v) crossing (X, not X) to
+  add to X and T, respectfully
+- To maintain invariant (cheapest edge in heap):
+  when v added to X:
+  - for each edge (v, w) in E:
+   - if w in not X
+     - delete w from heap (needs bookkeeping!)
+     - recompute key[w] = min{ key[w], Cvw}
+     - re-insert w into heap

@@ -1,0 +1,13 @@
+Shortened from Coursera:
+
+The file describes an undirected graph with integer edge costs.
+
+File format:
+[number of nodes][number of edges]
+[one node of edge 1][other node of edge 1][edge cost]
+[one node of edge 2][other node of edge 2][edge cost]
+...
+
+Edge costs can be positive or negative, and can be non distinct
+
+Run Prim's minimum spanning tree algorithm on this graph and report the overall cost of a minimum spanning tree (may be negative).
