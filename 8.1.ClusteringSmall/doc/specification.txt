@@ -1,0 +1,20 @@
+Shortened from Coursera:
+
+Code up the clustering algorithm for computing a max-spacing-k-clustering
+
+The file 'clustering1.txt' describes a distance function - a complete graph with edge costs.
+It has the format:
+
+[number_of_nodes]
+
+[edge 1 node 1][edge 1 node 2]
+[edge 1 cost]
+
+[edge 2 node 1][edge 2 node 2]
+[edge 2 cost]
+
+There is one edge (i,j) for each choice of 1<=1<=j<=n, where n is the number of nodes.
+You can assume distances are positive, but you cannot assume that they are distinct.
+
+Task is to run the clustering algorithm on this data set, where the target number k of
+clusters is 4. What is the maximum spacing of a 4-clustering?

@@ -1,0 +1,14 @@
+----------
+Clustering
+----------
+
+Greedy Algorithm outline:
+- Initially, each point in a separate cluster
+- Repeat until only k clusters:
+  - let p, q = closest pair of separated points (determines the current spacing)
+  - merge the clusters containing p & q into a single cluster.
+
+Note: Just like Kruskal's MST algorithm, but stopped early.
+
+Data structure for merging: The Union-Find Data Structure
+
