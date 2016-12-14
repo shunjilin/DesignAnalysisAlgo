@@ -58,24 +58,33 @@ template <typename Node> class MinHeap {
 	}
     }
 	
- public:
+public:
     MinHeap() {};
-    MinHeap(std::vector<int> elements) : heapArray(elements) {
+    MinHeap(std::vector<Node> elements) : heapArray(elements) {
 	buildMinHeap();
     };
     
     int size() { return heapArray.size(); }
 
     bool isEmpty() { return size() == 0; }
-    
-    Node extractMin() {
-	if (size() == 0) throw std::string("extractMinOnEmpty");
-	Node min = heapArray[0];
+
+    Node min() {
+	if (size() == 0) throw std::string("minOnEmpty");
+	return heapArray[0];
+    }
+	
+    void popMin() {
+	if (size() == 0) throw std::string("popMinOnEmpty");
 	std::swap(heapArray[0], heapArray[size() - 1]);
 	heapArray.pop_back();
 	if (size() != 0) minHeapify(0);
-	return min;
     }
+
+    Node extractMin() {
+	Node min = this->min();
+	popMin();
+	return min;
+    }    
 
     void insert(Node node) {
 	heapArray.emplace_back(node);

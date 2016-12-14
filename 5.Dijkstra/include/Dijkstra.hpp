@@ -7,6 +7,8 @@
 #include "MinHeap.hpp"
 #include <limits>
 
+using namespace minheap;
+
 namespace dijkstra {
     struct Node {
 	int id;

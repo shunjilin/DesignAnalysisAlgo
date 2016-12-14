@@ -6,6 +6,7 @@
 #include <memory>
 
 using namespace testing;
+using namespace minheap;
 
 class MinHeapInitialize : public Test {
 public:

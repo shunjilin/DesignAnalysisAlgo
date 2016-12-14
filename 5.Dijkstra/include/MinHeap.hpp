@@ -7,6 +7,8 @@
 #include <cassert>
 #include <string>
 
+namespace minheap {
+
 template <typename Node> class MinHeap {
     std::vector<Node> heapArray;
 
@@ -58,9 +60,9 @@ template <typename Node> class MinHeap {
 	}
     }
 	
- public:
+public:
     MinHeap() {};
-    MinHeap(std::vector<int> elements) : heapArray(elements) {
+    MinHeap(std::vector<Node> elements) : heapArray(elements) {
 	buildMinHeap();
     };
     
@@ -68,12 +70,21 @@ template <typename Node> class MinHeap {
 
     bool isEmpty() { return size() == 0; }
     
-    Node extractMin() {
-	if (size() == 0) throw std::string("extractMinOnEmpty");
-	Node min = heapArray[0];
+    Node min() {
+	if (size() == 0) throw std::string("minOnEmpty");
+	return heapArray[0];
+    }
+	
+    void popMin() {
+	if (size() == 0) throw std::string("popMinOnEmpty");
 	std::swap(heapArray[0], heapArray[size() - 1]);
 	heapArray.pop_back();
 	if (size() != 0) minHeapify(0);
+    }
+
+    Node extractMin() {
+	Node min = this->min();
+	popMin();
 	return min;
     }
 
@@ -82,8 +93,7 @@ template <typename Node> class MinHeap {
 	bubble_up(size() - 1);
     }
 
-    
-
+};
 };
 
 #endif
