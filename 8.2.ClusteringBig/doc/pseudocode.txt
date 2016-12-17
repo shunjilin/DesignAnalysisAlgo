@@ -12,3 +12,14 @@ Note: Just like Kruskal's MST algorithm, but stopped early.
 
 Data structure for merging: The Union-Find Data Structure
 
+---------
+Specifics
+---------
+
+For this problem only have to merge clusters of hamming distance 1, followed by 2.
+
+Do that by finding all permutations of dist 1 and 2 nodes relative to each node in the file, and merging them if the permutations exist in the file.
+
+This can be done quickly by using a set data structure to store all node entries.
+
+Any additional optimization is to only generate permutations greater than the respective nodes, to avoid duplicate comparisons.

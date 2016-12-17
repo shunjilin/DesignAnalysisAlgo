@@ -23,3 +23,7 @@ Practice with CMake and Google Test/ Google Mock
 7.1.Minimum Weighted Sum of Completion Times - Greedy Scheduling
 
 7.2.Minimum Spanning Tree - Prim's Algorithm
+
+8.1.Clustering (Small) - k Clustering of explicitly defined graph
+
+8.2.Clustering (Big) - k Clustering of implicitly defined graph using hamming distances
