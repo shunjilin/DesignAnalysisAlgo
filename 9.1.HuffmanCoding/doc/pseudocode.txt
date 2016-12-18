@@ -1,0 +1,25 @@
+------------------------
+Huffman Coding Algorithm
+------------------------
+
+Goal:
+- Given an alphabet of characters, map each character to a binary string
+- Minimize the average encoding length (Sum of pi * depth of i on Tree, where pi is the frequency of each character)
+- Prefix free for non-ambiguous decoding
+
+Solution:
+- Build a prefix-free binary tree
+- Only leaves can be used to encode characters
+- Left child represents 0, right child represents 1
+
+----------
+Psuedocode
+----------
+
+- Base case: if number of characters = 2, return balanced tree of 3 nodes, with each leave node assigned 1 character
+- Let a, b in alphabet represent the characters with the smallest frequencies
+- Let alphbet' = alphabet with a,b replaced by new character ab.
+- Define Pab = Pa + Pb
+- Recursively compute T' (for alphabet')
+- Extend T' (with leaves of alphabet') to a tree with leaves of alphabet by splitting leaf ab into two leaves a & b.
+- Return T

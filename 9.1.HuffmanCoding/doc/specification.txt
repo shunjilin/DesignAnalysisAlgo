@@ -1,0 +1,18 @@
+Shortened from Coursera:
+
+Code up the greedy algorithm on Huffman coding.
+
+The file 'huffman.txt' has the format:
+
+[number of symbols]
+
+[weight of symbol 1]
+
+[weight of symbol 2]
+
+...
+
+Run the Huffman coding algorithm on this data set.
+
+Q1. What is the maximum length of a codeword in the resulting Huffman code?
+Q2. What is the minimum length of a codeword in the resulting Huffman code?
