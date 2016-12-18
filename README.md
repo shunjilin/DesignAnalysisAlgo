@@ -6,8 +6,7 @@ C++ implementations
 
 Practice with CMake and Google Test/ Google Mock
 
-Programming problems from Coursera's Design and Analysis of Algorithms / Algorithms Specializations
-Transitioned from the old course to the new specialization midway, so problems may not be in correct order
+Programming problems from Coursera's Design and Analysis of Algorithms / Algorithms Specializations; transitioned from the old course to the new specialization midway, so problems may not be in correct order
 
 1.Inversions - Merge sort and counting inversions
 
