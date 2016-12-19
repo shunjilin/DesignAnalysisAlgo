@@ -1,0 +1,46 @@
+----------------------------------------------------------
+Maximum-Weight Independent Set(MWIS) - Dynamic Programming
+----------------------------------------------------------
+
+Goal:
+- Given a path of vertices with weights, output the set of vertices that gives the maximum weight.
+- Vertices have to be independent - no two can be adjacent
+
+Solution:
+- Dynamic Programming, linear time O(n) solution, n is the number of vertices
+
+----------
+Psuedocode
+----------
+
+- Let P be the array of path vertices' weights, in order
+- Let Gi = 1st i+1 vertices of the path, from left to right
+- Initialize array A of size n, which holds the MWIS of Gi
+- Plan: populate A, either iteratively or recursively
+- Recursively maxWeightSubProblem(index):
+  - Base Case: if A[index] initialized, return value, i.e. Gi
+  - Base Case: if index = 0, A[index] = P[0], return assigned value
+  - Base Case: if index = 1, A[index] = max(P[0], P[1]), return assigned value
+  - Return max(maxWeightSubProblem(i - 1), maxWeightSubProblem(i - 2) + P[i])
+
+- Idea is that MWIS can only come from (weightOfPi + Gi-2) or (Gi-1) due to independence constraint
+- Calculate MWIS of full problem by maxWeightSubProblem(lastIndex), and finding the value A[lastIndex]
+
+- Constructing set of vertices in MWIS:
+- Set i = P.size() - 1, i.e. lastIndex
+- While (i > 1):
+  - if (A[i-1] >= A[i-2] + P[i]):
+    - P[i] is not in MWIS, so do not include
+    - i -= 1
+   - else
+     - P[i] is in MWIS, and P[i-1] is not, due to independence constraint
+     - set.insert(i)
+     - i -= 2 (ignore P[i-1])
+- At end of while loop
+  - if i == 1
+    - if (P[1] > P[0]) set.insert(1) else set.insert(0)
+  - if i == 0
+    - set.insert(0)
+     
+
+

@@ -1,0 +1,18 @@
+Shortened from Coursera:
+
+Code up the dynamic programming algorithm for computing a maximum-weight independent set of a path graph.
+
+The file 'mwis.txt' describes the weights of vertices in a path graph (in order) and has the format:
+
+[number of vertices]
+
+[weight of vertice 1]
+
+[weight of vertice 2]
+
+...
+
+Run the dynamic programming algorithm and the reconstruction procedure on the data set.
+
+Q: Of the vertices 1, 2, 3, 4, 17, 117, 517, and 997, which ones belong to the maximum-weight independent set?
+Return this as a 8-bit string, e.g. if only 997 belongs, return '00000001'
