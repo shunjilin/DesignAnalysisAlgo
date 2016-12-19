@@ -4,6 +4,6 @@ To build, type "cmake .." in build directory
 
 to compile type "make"
 
-to run tests type TODO FILL
+to run tests type "./test/HuffmanTreeTest" and "./test/HuffmanCodingTest"
 
 to run main type "./source/huffmanCoding"
