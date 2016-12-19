@@ -31,3 +31,5 @@ Programming problems from Coursera's Design and Analysis of Algorithms / Algorit
 8.2.Clustering (Big) - k Clustering of implicitly defined graph using hamming distances
 
 9.1.Optimal Prefix Code - Huffman Coding Algorithm (greedy algorithm)
+
+9.2.Maxmum Weighted Independent Set of Path - Dynamic Programming
