@@ -3,7 +3,7 @@
 #ifndef CLUSTERING_HPP
 #define CLUSTERING_HPP
 
-#include <set>
+#include <unordered_set>
 #include "UnionFind.hpp"
 #include "BitFunctions.hpp"
 
@@ -13,7 +13,7 @@ using namespace bitfunctions;
 namespace clusteringimplicit {
     
     class Clustering {	
-	std::set<int> node_set;
+	std::unordered_set<int> node_set;
 	UnionFind union_find;
 	int n_bits;
 
