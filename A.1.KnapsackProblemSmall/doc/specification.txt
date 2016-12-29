@@ -1,0 +1,17 @@
+Shortened from Coursera:
+
+Code up the knapsack algorithm.
+
+The file describes a knapsack instance and has the following format:
+
+[knapsack_size][number_of_items]
+
+[value_1][weight_1]
+
+[value_2][weight_2]
+
+...
+
+Assume all numbers are positive.
+Assume that item weights and the knapsack capacity are integers.
+

@@ -1,0 +1,30 @@
+----------------------------
+Iterative Knapsack Algorithm
+----------------------------
+Given a maximum weight of a knapsack, and items with weights and values, find the combination of items that will maximize the value of the knapsack while not exceeding its maximum weight
+
+A = 2d array of size n_items + 1 by max_weight + 1 (0 inclusive)
+Row of A is the subproblem number of items included, assume they are ordered, 0 indicates no item included
+Column of A is the subproblem weight
+
+Initialization:
+A[0,x] = 0 and A[n,0] = 0 for all x, n
+wi (weight of i)
+vi (value of i)
+
+Main loop:
+- for i = 1 to n
+      - for x = 1 to w
+      	-A[i, x] := max{A[i-1, x], // case 1 don't include nth item
+	      	    	A[i-1, x-wi] + vi} // case 2 include nth item, ignore edge case where wi > x
+
+Optimal solution is then A[n_items, max_weight]
+Running time O(n_items x max_weight)
+
+To generate list of items included in knapsack, trace from A[n_items, max_weight],
+see which case (1 or 2) is the maximum derived from:
+- if case 1 is used, include nth item
+- otherwise, do not include nth item
+Recurse until all n items visited
+Running time O(n_items)
+

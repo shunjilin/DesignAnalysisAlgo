@@ -1,0 +1,15 @@
+----------------------------
+Recursive Knapsack Algorithm
+----------------------------
+Given a maximum weight of a knapsack, and items with weights and values, find the combination of items that will maximize the value of the knapsack while not exceeding its maximum weight
+
+When the problem is too big, only want to visit subproblems that are necessary to solve main problem:
+
+Recursively solve for subproblems:
+Solve_suproblem(nth_item, weight_limit) :
+-Base cases: if nth_item or weight_limit 0, return 0.
+- if cached, return cached solution, else:
+  - cache and return max{A[nth_item-1, weight_limit], // case 1 don't include nth item
+              	         A[nth_item, weight_limit-nth_weight] + nth_value} // case 2 include nth item, ignore if edge case where nth_weight > weight_limit
+
+Solution for main problem is then Solve_Subproblem(n_items, max_weight)
