@@ -1,0 +1,12 @@
+Shortened from Coursera:
+
+Implement one or more algorithms for the all-pairs-shortest-path problem.
+
+Files describing three graphs: g1.txt, g2.txt, g3.txt
+
+First line indicates number of vertices and edges,
+subsequent lines describe an edge (tail, head) and its length
+
+Note: graphs may or may not have negative-cost cycles
+
+Task: compute the shortest shortest path for each graph

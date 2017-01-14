@@ -20,5 +20,6 @@ Transitioned from the old course to the new specialization midway, so problems m
 * 8.2.Clustering (Big) - k Clustering of implicitly defined graph using hamming distances
 * 9.1.Optimal Prefix Code - Huffman Coding Algorithm (greedy algorithm)
 * 9.2.Maxmum Weighted Independent Set of Path - Dynamic Programming
-* 10.1.Knapsack Problem (Small) - Dynamic Programming (Iterative Approach)
-* 10.2.Knapsack Problem (Big) - Dynamic Programming (Recursive Approach)
+* A.1.Knapsack Problem (Small) - Dynamic Programming (Iterative Approach)
+* A.2.Knapsack Problem (Big) - Dynamic Programming (Recursive Approach)
+* B.All Pairs Shortest Path - Johnson's Algorithm (Bellman-Ford + Dijkstra)

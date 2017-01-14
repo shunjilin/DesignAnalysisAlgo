@@ -1,0 +1,24 @@
+-------------------
+Johnson's Algorithm
+-------------------
+1. Form G' by adding a new vertex s and a new edge (s,v) with length 0 for each v in G
+2. Run Bellman-Ford on G' with source vertex S. If Bellman-Ford detects negative cost cycle, halt and report this.
+3. For each v in G, define pv = length of a shortest s->v path in G'. For each edge (u,v) in G, define Cuv' = Cuv + pu - pv
+4. For each vertex u of G: Run Dijkstra's algorithm in G, with edge lengths Cuv', with source vertex u to compute the shortest path distance duv' of each v in G
+5. For each pair u,v in G return the shortest path distance duv = duv' - pu + pv
+
+O(mnlogn) time, much better than Floyd-Warshall for sparse graph
+
+----------------------
+Bellman-Ford Algorithm
+----------------------
+A[i,n], i is the number of internal nodes from source to n (subproblem / dynamic programming)
+Base Case: A[0,s] = 0; A[0,v] = +infinity for all v != s
+For i = 1, 2, 3, ..., n-1:
+    For each v in V:
+    	A[i,v] = min (A[i-1, v], // case 1, inherit smaller subproblem
+	       	     min(A[i-1, w] + Cwv for w,v in E)) // case 2, include an edge that shortens path
+
+Early termination if an iteration does not change any of the values, i.e. all case 1
+
+Detect negative cycle by going one iteration past n-1, since paths without cycles can only have length of n-1, if the extra iteration changes any of the values, i.e. case 2, we have a negative cycle.
