@@ -49,14 +49,11 @@ namespace tspdp {
 		     (n_vertices, std::numeric_limits<double>::max())),
 	    solved(false)
 	{
-	    // offset for fact that first index [0] will always be set
+	    // offset for fact that initial vertice will always be set
 	    for (int i = 0, sz = pow(2, n_vertices-1); i < sz; ++i) {
 		index_k_pairs.emplace_back(IndexKPair(i));
 		index_k_pairs[i].index = offsetByOneAndSetOne(index_k_pairs[i].index);
-		++index_k_pairs[i].k;
-		
-		//std::cerr << "index " << std::bitset<32> (index_k_pairs[i].index) << std::endl;
-		//std::cerr << "k " << index_k_pairs[i].k << std::endl;
+		++index_k_pairs[i].k; // account for omitted vertice
 	    }
 	    std::sort(index_k_pairs.begin(), index_k_pairs.end());
 	}
@@ -75,7 +72,6 @@ namespace tspdp {
 			    double min_value = std::numeric_limits<double>::max();
 			    for (int k = 0; k < n_vertices; ++k) {
 				if (k == j || !isBitSetAtIndex(subset_index, k)) continue;
-				//std::vector<bool> j_omit = subset;
 				int omit_j = setBitAtIndex(subset_index, j); // omit j
 				double subprob_value =
 				    dp_table[omit_j][k] +
