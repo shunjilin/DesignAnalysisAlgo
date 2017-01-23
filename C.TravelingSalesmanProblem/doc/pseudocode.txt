@@ -1,0 +1,25 @@
+-------------------------------------
+Dynamic Programming Algorithm for TSP
+-------------------------------------
+
+Subproblems:
+For every destination j in {1,2,...,n}, every subset s in {1,2,...,n} that contains i and j, let L(s,j) = minimum length of path from 1 to j that visits precisely the vertices of S [exactly once each]
+
+Optimal Substructure:
+Let P be a shortest path from 1 to j that visits the vertices S (assume |S| >= 2) [exactly once each]. If last hop of P is (k,j), then P' is a shortest path from 1 to k that visits every vertex of S-{j} exactly once.
+
+----------
+Pseudocode
+----------
+Let A = 2D array indexed by subsets S subset of {1,2,...,n} that contain 1 and destinations j in {1,2,...,n}
+Base case: A[S, 1] = 0 if S = {1}, +infinity otherwise [no way to avoid visiting vertex 1 twice]
+
+- For m=2,3,4,...,n: [m = subproblem size]
+    - For each set S subset of {1,2,...,n} of size m that contains 1:
+    	- For each j in S, j != 1:
+	    - A[s,j] = min{A[S-{j},k} + Ckj} where k in S, k != j
+- Return min of j=2,...,n {A[{1,2,3,...,n},j] + cj1} [min cost from 1 to j + cost of final hop from j back to 1]
+
+Running Time O(n^2 * 2^n)
+n choice of j, 2^2 choice of S, O(n) work per subproblem <brute force over k>
+	    
