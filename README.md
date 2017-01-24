@@ -23,3 +23,5 @@ Transitioned from the old course to the new specialization midway, so problems m
 * A.1.Knapsack Problem (Small) - Dynamic Programming (Iterative Approach)
 * A.2.Knapsack Problem (Big) - Dynamic Programming (Recursive Approach)
 * B.All Pairs Shortest Path - Johnson's Algorithm (Bellman-Ford + Dijkstra)
+* C.Traveling Salesman Problem - Dynamic Programming (Exact)
+* D.Traveling Salesman Problem - Greedy Heuristic - Nearest Neighbor (Approximate)
