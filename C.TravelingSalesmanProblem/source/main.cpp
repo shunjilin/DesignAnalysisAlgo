@@ -39,9 +39,9 @@ int main(int argc, char *argv[])
 	}
 	coordinates.emplace_back(Coordinate(x,y));
     }
-    TSPDP tspdp = TSPDP(Map(coordinates));
     SteadyClockTimer timer;
     timer.start();
+    TSPDP tspdp = TSPDP(Map(coordinates));
     std::cout << "Minimum cost tour has cost (rounded down to nearest integer): " << floor(tspdp.minTSPValue()) << std::endl;
     std::cout << "time taken is : " << timer.getMs() << " ms" << std::endl;
     return 0;
