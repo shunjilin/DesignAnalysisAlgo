@@ -1,0 +1,19 @@
+------------------------
+Greedy Heuristic for TSP
+------------------------
+
+From an initial vertice, take the edge that has the lowest cost amongst all the edges to not yet visited vertices.
+
+Repeat until all vertices visited, then take the edge from the final vertice to the initial vertice.
+
+---------------------------------------------------
+Naive Implementation for Coordinate-based distances
+---------------------------------------------------
+- Maintain a set of unvisited vertices
+- Set the current vertice to that of the initial vertice
+- Start with the initial vertice, and remove it from the unvisited set
+- Iterate through all vertices in the unvisited set to find the vertice with the closest euclidean distance (calculate on the fly)
+- Add this distance to the total distance
+- Remove the target vertie from the unvisited set
+- Set the current vertice to that of the newly visited vertice
+- Continue until all vertices visited, then add the distance from the final vertice to the initial vertice

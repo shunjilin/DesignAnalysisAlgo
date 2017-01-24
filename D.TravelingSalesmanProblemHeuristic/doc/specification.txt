@@ -1,0 +1,19 @@
+Shortened from Coursera:
+
+Implement a heuristic (instead of exact algorithm) for the Traveling Salesman Problem. Using a heuristic allows you to handle much bigger problem sizes.
+
+Data file describing a TSP instance in nn.txt
+
+First line indicates number of cities.
+Each city is a point in a plane, each line describes x and y coordinates of a single city
+
+Distance between cities (x,y) and (z,w) defined as Euclidean distance sqrt((x-y)^2 + (y-w)^2).
+
+Implement the nearest neighbor heuristic:
+1. Start tour at first city.
+2. Repeatedly visit the closest city that the tour hasn't visited yet. In case of tie, go to closest city with lowest index.
+3. Once every city visited exactly once, return to first city to complete tour.
+
+Return the cost of a traveling salesman tour computed by the heuristic, rounded down to nearest integer.
+
+[Hint: when constructing tour, might be easier to work with squared Euclidean distances, but return length of tour in terms of standard Euclidean distance]
