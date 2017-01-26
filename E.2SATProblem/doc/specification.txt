@@ -1,0 +1,10 @@
+Shortened from Coursera:
+
+Implement algorithm for 2SAT problem. 6 different 2SAT instances given in files '2sat1.txt', '2sat2.txt', ... , '2sat6.txt'
+
+File format:
+In each instance, the number of variables and the number of clauses is the same; this number is specified on the first line of the files.
+Subsequent lines specifies a clause via its two literals, with a number denoting the variable and a "-" sign denoting logical "not".
+
+Task:
+Determine which of the 6 instances are satisfiable, and which are unsatisfiable. Return a 6-bit string where the ith bit should be 1 if the the ith instance is satisfiable.

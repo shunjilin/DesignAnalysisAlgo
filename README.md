@@ -25,3 +25,4 @@ Transitioned from the old course to the new specialization midway, so problems m
 * B.All Pairs Shortest Path - Johnson's Algorithm (Bellman-Ford + Dijkstra)
 * C.Traveling Salesman Problem - Dynamic Programming (Exact)
 * D.Traveling Salesman Problem - Greedy Heuristic - Nearest Neighbor (Approximate)
+* E.2SAT Problem - Reduction to SCC (Kosaraju's algorithm)

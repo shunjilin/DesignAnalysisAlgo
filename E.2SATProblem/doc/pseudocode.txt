@@ -1,0 +1,21 @@
+---------------------
+2SAT reduction to SCC
+---------------------
+
+As described in:
+'A Linear-Time Algorithm for Testing the Truth of Certain Quantified Boolean Formulas', by Bengt Aspvall, Michael F. Plass and Robert Endre Tarjan
+http://www.math.ucsd.edu/~sbuss/CourseWeb/Math268_2007WS/2SAT.pdf
+
+Algorithm:
+-For each literal x, introduce a vertice in the graph for the literal x, and its negation -x.
+-For each clause (u,v), introduce an edge from -u -> v and from -v -> u in the graph
+-Run SCC algorithm on the graph
+-If for a literal x, both x and -x are in the same SCC, then the SAT instance is unsatisfiable, otherwise the instance is satisfiable.
+
+Simple Explanation (for detailed see paper):
+for clause (u,v), edges -u -> v and -v -> u are added.
+Cond 1. To satisfy the clause, if -u is true, v has to be true.
+     Similarly, if -v is true, then u has to be true.
+Cond 2. If -u is false, then v can take on any value, if -v is false, u can take on any value.
+However, in a strongly connected component, all vertices(literals) have to be true (to satisfy Cond 1.), or all vertices(literals) have to be false - predecessor of a false literal cannot be true, thus the entire connected component has to be false (to satisfy Cond 2.).
+Thus if the literals x and -x belong to the same SCC, no truth assignment can be made to that SCC, making the instance unsatisfiable.
