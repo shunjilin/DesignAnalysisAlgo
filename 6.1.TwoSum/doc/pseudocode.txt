@@ -1,0 +1,21 @@
+-----------------------
+2-SUM Algorithm Variant
+-----------------------
+
+Data structures used:
+
+1. Container that supports binary search (std::set)
+> To store input integers
+
+2. Hash Table (std::unordered_set)
+> To insert and keep track of unique target values
+
+----------
+Psuedocode
+----------
+
+1. For each input integer x:
+1.1. Using binary search, and subtracting from the upper and lower bounds, find the range of possible values that the matching integer y can take on. Return iterators to the lower and upper bound of the set.
+1.2. Iterate through this range, and if x and y are unique, insert the target value t = x + y into the hash table. The hash table will ensure that duplicate entries are removed.
+
+2. Count the number of entries in the hash table, and output that value.
