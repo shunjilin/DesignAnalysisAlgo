@@ -26,7 +26,7 @@ namespace Scheduler {
 	    int lhs_score = differenceScore(lhs);
 	    int rhs_score = differenceScore(rhs);
 	    if (lhs_score == rhs_score) { // tie-break
-		return lhs.length > rhs.length;
+		return lhs.weight > rhs.weight;
 	    }
 	    return lhs_score > rhs_score;   
 	}	
