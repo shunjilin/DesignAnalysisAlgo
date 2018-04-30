@@ -1,4 +1,9 @@
 //Copyright 2016 <Shunji Lin>
+/********************************************************************//**
+ *                                                                  
+ * WARNING: This implementation is incorrect! See updated version at
+ * https://github.com/shunjilin/AlgorithmsSpecialization
+ ************************************************************************/
 
 #ifndef MWIS_DP_HPP
 #define MWIS_DP_HPP

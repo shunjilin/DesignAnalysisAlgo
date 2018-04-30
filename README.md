@@ -1,3 +1,6 @@
+This version may have incorrect implementations, updated implementations here:
+[Algorithms Specialization](https://github.com/shunjilin/AlgorithmsSpecialization)
+
 ##### Coursera: Design and Analysis of Algorithms / Algorithms Specialization [Stanford]
 
 ##### Shunji Lin  
